@@ -1,2 +1,1 @@
-# Open-World-Game
-This is a demo version of an Indian-themed open-world game inspired by GTA. Explore the early build of street life, missions, and culture-based gameplay. Work in progress – more features, cities, and chaos coming soon!
+VirtuUU is a Unity-based simulation game that recreates the daily student experience at Uttaranchal University. Explore a compact virtual campus, attend classes, interact with NPCs powered by a custom API, and complete tasks that mirror real college life. Designed for immersion, nostalgia, and creative experimentation, this project blends education and entertainment in a personalized digital world.
