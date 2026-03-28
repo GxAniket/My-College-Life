@@ -1,0 +1,6 @@
+public DialogueSystem dialogueSystem;
+
+void Interact()
+{
+    dialogueSystem.StartDialogue();
+}
