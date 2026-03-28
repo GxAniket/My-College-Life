@@ -1,0 +1,37 @@
+using UnityEngine;
+
+public class DialogueSystem : MonoBehaviour
+{
+    public string[] dialogues;
+    private int index = 0;
+
+    public void StartDialogue()
+    {
+        index = 0;
+        ShowDialogue();
+    }
+
+    void ShowDialogue()
+    {
+        Debug.Log(dialogues[index]);
+    }
+
+    public void NextDialogue()
+    {
+        index++;
+
+        if (index < dialogues.Length)
+        {
+            ShowDialogue();
+        }
+        else
+        {
+            EndDialogue();
+        }
+    }
+
+    void EndDialogue()
+    {
+        Debug.Log("End of conversation");
+    }
+}
