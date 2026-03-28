@@ -1,0 +1,59 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class NPCController : MonoBehaviour
+{
+    public Transform[] patrolPoints;
+    private int currentPoint = 0;
+
+    private NavMeshAgent agent;
+    public float interactionDistance = 3f;
+
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        GoToNextPoint();
+    }
+
+    void Update()
+    {
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
+            GoToNextPoint();
+        }
+
+        CheckPlayerInteraction();
+    }
+
+    void GoToNextPoint()
+    {
+        if (patrolPoints.Length == 0) return;
+
+        agent.destination = patrolPoints[currentPoint].position;
+        currentPoint = (currentPoint + 1) % patrolPoints.Length;
+    }
+
+    void CheckPlayerInteraction()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null) return;
+
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distance < interactionDistance)
+        {
+            Debug.Log("Press E to interact");
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Interact();
+            }
+        }
+    }
+
+    void Interact()
+    {
+        Debug.Log("NPC: Hello! Welcome to Uttaranchal University!");
+    }
+}
